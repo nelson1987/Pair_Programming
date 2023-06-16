@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3C970781
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pragma.UnitTests", "tests\UnitTests\Pragma.UnitTests.csproj", "{768FB003-E293-4F0A-85E3-33034CD43B4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pragma.Domain", "src\Pragma.Domain.csproj", "{96D4F202-09B4-41C9-9EA8-3F03F4571961}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{768FB003-E293-4F0A-85E3-33034CD43B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{768FB003-E293-4F0A-85E3-33034CD43B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{768FB003-E293-4F0A-85E3-33034CD43B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D4F202-09B4-41C9-9EA8-3F03F4571961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D4F202-09B4-41C9-9EA8-3F03F4571961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D4F202-09B4-41C9-9EA8-3F03F4571961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D4F202-09B4-41C9-9EA8-3F03F4571961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{768FB003-E293-4F0A-85E3-33034CD43B4B} = {3C970781-100D-48DF-9F70-08AE78B0B862}
