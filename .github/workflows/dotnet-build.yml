@@ -80,7 +80,12 @@ jobs:
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: dotnet test
-
+      
+    # Upload Code Coverage by CodeCov  
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      env: CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     #- name: Restore the application
     #  run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
