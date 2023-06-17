@@ -4,15 +4,16 @@ namespace Pragma.UnitTests;
 
 public class EntidadeBaseTest
 {
+    private EntidadeBase entidade {get; set;}
     [SetUp]
     public void Setup()
     {
+        entidade = new EntidadeBase();
     }
 
     [Test]
-    public void Test1()
+    public void After_Implement_Id_Value()
     {
-        EntidadeBase entidade = new EntidadeBase();
         Assert.AreEqual(entidade.Id, 0);
     }
 }
