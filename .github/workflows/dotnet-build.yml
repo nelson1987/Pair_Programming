@@ -40,9 +40,9 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "nsn_infra" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "nsn_infra" ]
+    branches: [ "main" ]
 
 jobs:
 
