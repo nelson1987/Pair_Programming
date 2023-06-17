@@ -1,3 +1,20 @@
+version: '3.3'
 services:
   hello_world:
     image: hello-world
+    container_name: hello-world
+  rabbitmq:
+    image: 'rabbitmq:3.10-management'
+    container_name: rabbitmq
+    hostname: my-rabbit
+    ports:
+      - '15672:15672'
+      - '5672:5672'
+  mongodb:
+    image: 'mongodb:latest'
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - 'MONGO_INITDB_ROOT_PASSWORD=1234#abc'
