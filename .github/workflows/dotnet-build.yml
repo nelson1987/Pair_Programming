@@ -77,29 +77,17 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
-    # Go to unit tests in the solution
-    - name: Go To UnitTests Folder
-      run: cd tests/UnitTests
-
-    # Execute all unit tests in the solution
-    - name: Execute UnitTests
-      run: dotnet test
-
-    # Go to Integration tests in the solution
-    - name: Go To IntegrationTests Folder
-      run: cd ./tests/IntegrationTests
-
     # Start a container to Integration Tests
     - name: Start containers
-      run: docker-compose -f "docker-compose.yml" up -d --build
-
-    # Execute all unit tests in the solution
-    - name: Execute IntegrationTests
+      run: docker-compose -f "./tests/IntegrationTests/docker-compose.yml" up -d --build
+      
+    # Execute all tests in the solution
+    - name: Execute Tests
       run: dotnet test
     
     # Dispose a container to Integration Tests
     - name: Stop containers
-      run: docker-compose -f "docker-compose.yml" down
+      run: docker-compose -f "./tests/IntegrationTests/docker-compose.yml" down
 
     # Upload Code Coverage by CodeCov  
     - name: Upload coverage reports to Codecov
