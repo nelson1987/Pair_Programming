@@ -16,6 +16,6 @@ public class CarteiraTests
     [Test]
     public void Criar_Carteira_Com_Sucesso()
     {
-        Assert.AreEqual(carteira.Id, 0);
+        Assert.That(carteira.Ativos.Count, Is.EqualTo(0));
     }
 }
