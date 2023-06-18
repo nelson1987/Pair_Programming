@@ -11,10 +11,20 @@ services:
       - '15672:15672'
       - '5672:5672'
   mongodb:
-    image: 'mongodb:latest'
+    image: 'mongo'
     container_name: mongodb
     ports:
       - '27017:27017'
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=mongo
-      - 'MONGO_INITDB_ROOT_PASSWORD=1234#abc'
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: MongoDB#2023
+    ports:
+      - "27017:27017"
+    volumes:
+      - /Docker/Volumes/MongoDB:/data/db
+    networks:
+      - mongo-compose-network
+
+networks: 
+    mongo-compose-network:
+      driver: bridge
