@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.7'
 services:
   redis:
     image: redis:latest
@@ -9,18 +9,16 @@ services:
     container_name: rabbitmq
     hostname: my-rabbit
     ports:
-      - '15672:15672'
-      - '5672:5672'
+      - 15672:15672
+      - 5672:5672
   mongo:
     image: 'mongo'
     container_name: mongodb
     ports:
-      - '27017:27017'
+      - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: MongoDB#2023
-    ports:
-      - "27017:27017"
     volumes:
       - /Docker/Volumes/MongoDB:/data/db
   sqlserver:
