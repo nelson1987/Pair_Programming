@@ -1,8 +1,9 @@
 version: '3.3'
 services:
-  hello_world:
-    image: hello-world
-    container_name: hello-world
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
   rabbitmq:
     image: 'rabbitmq:3.10-management'
     container_name: rabbitmq
@@ -10,7 +11,7 @@ services:
     ports:
       - '15672:15672'
       - '5672:5672'
-  mongodb:
+  mongo:
     image: 'mongo'
     container_name: mongodb
     ports:
@@ -24,6 +25,12 @@ services:
       - /Docker/Volumes/MongoDB:/data/db
     networks:
       - mongo-compose-network
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:latest
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: your_password
 
 networks: 
     mongo-compose-network:
