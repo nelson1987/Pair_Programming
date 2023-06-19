@@ -37,6 +37,9 @@ public class Carteira
     {
         if (valor <= 0)
             throw new ArgumentException("Não é possível realizar saque nesse valor.");
+
+        if (valor > Saldo)
+            throw new ArgumentException("Não é possível realizar débito nesse valor.");
         Debitar(valor);
     }
     public void Comprar(Ativo ativo)

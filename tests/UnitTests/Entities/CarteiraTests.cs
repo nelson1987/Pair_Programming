@@ -22,6 +22,38 @@ public class CarteiraTests
     }
 
     [Test]
+    public void Depositar_Valor_Com_Sucesso()
+    {
+        carteira.Depositar(5M);
+        Assert.That(carteira.Saldo, Is.EqualTo(15M));
+    }
+    
+    [Test]
+    public void Depositar_Valor_Com_Erro()
+    {
+        Assert.That(() => carteira.Depositar(0M), Throws.Exception);
+    }
+    
+    [Test]
+    public void Sacar_Valor_Com_Sucesso()
+    {
+        carteira.Sacar(5M);
+        Assert.That(carteira.Saldo, Is.EqualTo(5M));
+    }
+
+    [Test]
+    public void Sacar_Valor_Com_Erro_Valor_Igual_Zero()
+    {
+        Assert.That(() => carteira.Sacar(0M), Throws.Exception);
+    }
+
+    [Test]
+    public void Sacar_Valor_Com_Erro_Saldo_Insuficiente()
+    {
+        Assert.That(() => carteira.Sacar(20M), Throws.Exception);
+    }
+
+    [Test]
     public void Comprar_Acao_Com_Sucesso()
     {
         decimal valorAcao = 5M;
@@ -43,4 +75,5 @@ public class CarteiraTests
         Assert.That(carteira.Ativos.Count, Is.EqualTo(0));
         Assert.That(carteira.Saldo, Is.EqualTo(10));
     }
+
 }
