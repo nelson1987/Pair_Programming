@@ -31,16 +31,21 @@ public class Carteira
     public void Depositar(decimal valor)
     {
         if (valor <= 0)
+        {
             throw new DomainValidationException("Não é possível realizar depósito nesse valor.");
+        }
         Creditar(valor);
     }
     public void Sacar(decimal valor)
     {
         if (valor <= 0)
+        {
             throw new ArgumentException("Não é possível realizar saque nesse valor.");
-
+        }
         if (valor > Saldo)
+        {
             throw new ArgumentException("Não é possível realizar débito nesse valor.");
+        }
         Debitar(valor);
     }
     public void Comprar(Ativo ativo)
@@ -51,7 +56,9 @@ public class Carteira
             Debitar(ativo.Valor);
         }
         else
+        {
             throw new ArgumentException("Saldo indisponível.");
+        }
     }
 }
 
