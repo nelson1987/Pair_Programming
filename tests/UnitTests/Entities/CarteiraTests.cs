@@ -1,5 +1,3 @@
-using Pragma.Domain.Entities;
-
 namespace Pragma.UnitTests.Entities;
 
 //ConsultaSaldoCarteira
@@ -31,9 +29,11 @@ public class CarteiraTests
     [Test]
     public void Depositar_Valor_Com_Erro()
     {
-        Assert.That(() => carteira.Depositar(0M), Throws.Exception);
+        Assert.Throws(Is.TypeOf<DomainValidationException>()
+                .And.Message.EqualTo("Não é possível realizar depósito nesse valor."),
+            () => carteira.Depositar(0M));
     }
-    
+
     [Test]
     public void Sacar_Valor_Com_Sucesso()
     {
@@ -56,8 +56,7 @@ public class CarteiraTests
     [Test]
     public void Comprar_Acao_Com_Sucesso()
     {
-        decimal valorAcao = 5M;
-        Ativo acao = new Ativo("Qualquer Ação",TipoAtivoEnum.B3, valorAcao);
+        Ativo acao = new Ativo("Qualquer Ação",TipoAtivoEnum.B3, 5M);
         carteira.Comprar(acao);
         Assert.That(carteira.Ativos.Count, Is.EqualTo(1));
         Assert.That(carteira.Saldo, Is.EqualTo(5M));
@@ -66,11 +65,7 @@ public class CarteiraTests
     [Test]
     public void Comprar_Acao_Com_Erro()
     {
-        //Arrange
-        decimal valorAcao = 15M;
-        //Act
-        Ativo acao = new Ativo("Qualquer Ação",TipoAtivoEnum.B3, valorAcao);
-        //Assert
+        Ativo acao = new Ativo("Qualquer Ação",TipoAtivoEnum.B3, 15M);
         Assert.That(() => carteira.Comprar(acao), Throws.Exception);
         Assert.That(carteira.Ativos.Count, Is.EqualTo(0));
         Assert.That(carteira.Saldo, Is.EqualTo(10));

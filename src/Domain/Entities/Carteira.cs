@@ -1,3 +1,4 @@
+using Pragma.Domain.Exceptions;
 using System.Linq;
 namespace Pragma.Domain.Entities;
 
@@ -30,7 +31,7 @@ public class Carteira
     public void Depositar(decimal valor)
     {
         if (valor <= 0)
-            throw new ArgumentException("Não é possível realizar depósito nesse valor.");
+            throw new DomainValidationException("Não é possível realizar depósito nesse valor.");
         Creditar(valor);
     }
     public void Sacar(decimal valor)
