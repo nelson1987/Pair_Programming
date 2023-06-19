@@ -1,5 +1,6 @@
 # Pair_Programming
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/05abee3a5bc74ddeb93c7e07126462ba)](https://app.codacy.com/gh/nelson1987/Pair_Programming?utm_source=github.com&utm_medium=referral&utm_content=nelson1987/Pair_Programming&utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/dea18577dccc4bbe9cbb3f6d13464422)](https://app.codacy.com/gh/nelson1987/Pair_Programming/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 Projeto realizado em parceria com o [Alexandre Lustosa](https://github.com/Alexandre-Lustosa-Escossio).
